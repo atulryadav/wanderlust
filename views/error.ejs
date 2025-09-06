@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title><%= title || "Error" %></title>
+  <style>
+    body { font-family: system-ui, Arial; padding: 2rem; background:#fafafa; }
+    .card { max-width:900px; margin: 2rem auto; padding:1.5rem; border:1px solid #e1e1e1; border-radius:10px; background:#fff; }
+    pre { white-space:pre-wrap; word-break:break-word; background:#f6f6f6; padding:1rem; border-radius:6px; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1><%= title || "Something went wrong" %></h1>
+    <p><%= message || "Unexpected error occurred." %></p>
+
+    <% if (stack) { %>
+      <h3>Stack</h3>
+      <pre><%= stack %></pre>
+    <% } %>
+  </div>
+</body>
+</html>
