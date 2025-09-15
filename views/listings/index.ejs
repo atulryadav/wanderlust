@@ -35,8 +35,7 @@
   }
 
 </style>
-<body>
-  <div class="filters">
+  <!-- <div class="filters">
     <div class="filter">
       <i class="fa-solid fa-fire"></i>
       <p>Trending</p>
@@ -73,18 +72,13 @@
       <div class="filter">
       <i class="fa-solid fa-snowflake"></i>
       <p>Arctic</p>
-    </div>
+    </div> -->
     <div class="toggle">
     <div class="form-check-reverse form-switch">
-  <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
-  <label class="form-check-label" for="switchCheckDefault"><p>Display after taxes</p></label>
-</div>
-</div>
-
-
-  </div>
-
-
+   <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+    <label class="form-check-label" for="switchCheckDefault"><p>Display after taxes</p></label>
+     </div>
+    </div>
 <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
 <%for(listing of allListing){%>
     <a href="/listings/<%=listing.id%>"><div class="card" style="width: 18rem;">
@@ -99,8 +93,7 @@
   </div>
 </div></a>
 <%}%>
-</div>
-
+</div> 
 <script>
   let taxSwitch = document.getElementById("switchCheckDefault")
   taxSwitch.addEventListener("click",()=>{
@@ -117,6 +110,3 @@
   })
 
 </script>
-
-
-</body>
