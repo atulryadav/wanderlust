@@ -19,7 +19,7 @@
 </div>
 </div>
 
-   <%if(currUser && listing.owner._id.equals(currUser._id)){%>
+   <%if(currentUser && listing.owner._id.equals(currentUser._id)){%>
   <div class="options offset-4 mb-4">
    <form method="get" action="/listings/<%=listing.id%>/edit">
     <button class="btn btn-dark edit">EDIT</button>
@@ -34,7 +34,7 @@
     <hr>
 
     <div class="col-12 offset-3 mt-2">
-      <%if(currUser){%>
+      <%if(currentUser){%>
       <h4>Leave a Review</h4>
       <form action="/listings/<%=listing.id%>/reviews" method="post" novalidate class="needs-validation">
       

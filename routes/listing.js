@@ -25,15 +25,15 @@ router.get("/:id",wrapAsync(async(req,res)=>{
 }))
 
 router.post("/",upload.single('listing[image]'),wrapAsync( async (req,res)=>{
-        console.log("FILE:", req.file);   // 👈 check this
+        console.log("FILE:", req.file);   
     console.log("BODY:", req.body);
 
     const newListing = new Listing(req.body.listing)
     newListing.owner = req.user._id
     if (req.file) {
   newListing.image = {
-    url: req.file.secure_url,     // use secure_url, not path
-    filename: req.file.public_id, // Cloudinary's public_id
+    url: req.file.secure_url,    
+    filename: req.file.public_id, 
   };
 }
 await newListing.save()
@@ -52,24 +52,24 @@ router.put(
   wrapAsync(async (req, res) => {
     const { id } = req.params;
 
-    // Find the listing first
+    
     const listing = await Listing.findById(id);
     if (!listing) {
       req.flash("error", "Listing not found");
       return res.redirect("/listings");
     }
 
-    // Update text fields
+    
     listing.set(req.body.listing);
 
-    // If a new image is uploaded
+    
     if (req.file) {
-      // Delete old image from Cloudinary if it exists
+    
       if (listing.image && listing.image.filename) {
         await cloudinary.uploader.destroy(listing.image.filename);
       }
 
-      // Save new 
+  
       listing.image = {
         url: req.file.path || req.file.secure_url,
         filename: req.file.filename || req.file.public_id,
